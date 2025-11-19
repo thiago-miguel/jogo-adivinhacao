@@ -60,3 +60,14 @@ botaoChutar.addEventListener("click", function () {
         palpiteInput.value = "";
         palpiteInput.focus();
 });
+
+/*Próximos passos:*/
+/*Quando acerta, trocar o botão chutar por recomeçar*/
+/*Escrever no início que tem 10 tentativas*/
+/*Colocar a quantidade de tentativas em um quadro separado ao invés de junto com a dica*/
+/*Criar CSS*/
+/*Criar modo difícil (em nova branch):
+    - Diminuir número de tentativas para 5
+    - Aumentar o range de números para 1-200
+    - Deixar apenas a dica mais recente visível
+*/
