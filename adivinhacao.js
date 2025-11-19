@@ -1,42 +1,56 @@
-/*
-Ao carregar a página, o JavaScript deve:
-
-Validar se o palpite é um número válido entre 1 e 100.
-
-Comparar o palpite com o número secreto e exibir uma mensagem:
-
-"Você acertou!" (e o jogo termina).
-
-"O número secreto é maior" (e o jogador continua tentando).
-
-"O número secreto é menor" (e o jogador continua tentando).
-
-Decrementar o contador de tentativas.
-
-Exibir o número de tentativas restantes.
-
-Se o jogador atingir o número máximo de tentativas, o jogo termina com a mensagem "Você perdeu! O número secreto era X".
-*/
-
-
 /*Variáveis*/ 
 let numeroSecreto = ((Math.random()*100)+1).toFixed(0);
 let tentativasMaximas = 10;
 let tentativasRestantes = tentativasMaximas;
 
-let palpiteInput = parseInt(document.getElementById("guess").value);
+let palpiteInput = document.getElementById("guess");
 let botaoChutar = document.getElementById("guessButton");
+let messageBox = document.getElementById("message");
 
 
 /*Funções*/
-botaoChutar.addEventListener("click", function () {
-    let palpite = palpiteInput;  // pega o que o usuário digitou
-    console.log(`O seu palpite é ${palpite}`);
-
-});
+function adicionarMensagem(texto) {
+    messageBox.innerHTML += texto + "<br>";
+}
 
 palpiteInput.addEventListener("keyup", function (evento) {
     if (evento.key === "Enter") {
         botaoChutar.click();
     }
+});
+
+botaoChutar.addEventListener("click", function () {
+    let palpite = parseInt(palpiteInput.value);
+    console.log(`O seu palpite é ${palpite}`);
+
+    if (isNaN(palpite) || palpite < 1 || palpite > 100) {
+        alert("Por favor, insira um número inteiro válido entre 1 e 100.");
+        return;
+    }
+
+    switch (true) {
+        case palpite === parseInt(numeroSecreto):
+            adicionarMensagem("Você acertou!");
+            botaoChutar.disabled = true;
+            break;
+        case palpite < parseInt(numeroSecreto):
+            tentativasRestantes--;
+            adicionarMensagem(`O número secreto é maior. Tentativas restantes: ${tentativasRestantes}`);
+            break;
+        case palpite > parseInt(numeroSecreto):
+            tentativasRestantes--;
+            adicionarMensagem(`O número secreto é menor. Tentativas restantes: ${tentativasRestantes}`);
+            break;
+        default:
+            alert("Erro inesperado.");
+            break;
+    }
+
+    if (tentativasRestantes === 0) {
+        alert(`Suas chances acabaram =( O número secreto era ${numeroSecreto}.`);
+        botaoChutar.disabled = true;
+    }
+
+    palpiteInput.value = "";
+    palpiteInput.focus();
 });
