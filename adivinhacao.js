@@ -22,7 +22,7 @@ function adicionarMensagem(texto, classe = "") {
   // adiciona ao container de mensagens
   messageBox.appendChild(p);
 
-  // opcional: rolar para o final se as mensagens ocuparem área com overflow
+  // rolar para o final se as mensagens ocuparem área com overflow
   messageBox.scrollTop = messageBox.scrollHeight;
 }
 
