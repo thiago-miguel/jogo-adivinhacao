@@ -2,6 +2,7 @@
 let numeroSecreto = (Math.random() * 100 + 1).toFixed(0);
 let tentativasMaximas = 10;
 let tentativasRestantes = tentativasMaximas;
+document.getElementById("tentativasNumero").textContent = tentativasRestantes;
 
 let palpiteInput = document.getElementById("guess");
 let botaoChutar = document.getElementById("guessButton");
@@ -36,12 +37,14 @@ function chutar() {
 
       case palpite < parseInt(numeroSecreto):
         tentativasRestantes--;
-        adicionarMensagem(`O número secreto é maior que ${palpite}. Tentativas restantes: ${tentativasRestantes}`);
+        adicionarMensagem(`O número secreto é maior que ${palpite}.`);
+        document.getElementById("tentativasNumero").textContent = tentativasRestantes;
         break;
 
       case palpite > parseInt(numeroSecreto):
         tentativasRestantes--;
-        adicionarMensagem(`O número secreto é menor que ${palpite}. Tentativas restantes: ${tentativasRestantes}`);
+        adicionarMensagem(`O número secreto é menor que ${palpite}.`);
+        document.getElementById("tentativasNumero").textContent = tentativasRestantes;
         break;
     }
 
@@ -76,6 +79,7 @@ function fimDoJogo() {
 function reiniciarJogo() {
   numeroSecreto = ((Math.random() * 100) + 1).toFixed(0);
   tentativasRestantes = tentativasMaximas;
+  tentativasRestantesBox.textContent = tentativasRestantes;
 
   messageBox.innerHTML = ""; // limpa mensagens
   palpiteInput.value = "";
@@ -97,8 +101,6 @@ function reiniciarJogo() {
 botaoChutar.addEventListener("click", chutar);
 
 /*Próximos passos:*/
-/*Escrever no início que tem 10 tentativas*/
-/*Colocar a quantidade de tentativas em um quadro separado ao invés de junto com a dica*/
 /*Criar CSS*/
 /*Criar modo difícil (em nova branch):
     - Diminuir número de tentativas para 5
