@@ -114,3 +114,8 @@ button:disabled {
     font-size: 14px;
     color: #333;
 }
+
+.mensagem-sucesso {
+    color: #0a8a0a;
+    font-weight: bold;
+}
