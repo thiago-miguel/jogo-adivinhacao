@@ -79,7 +79,7 @@ function fimDoJogo() {
 function reiniciarJogo() {
   numeroSecreto = ((Math.random() * 100) + 1).toFixed(0);
   tentativasRestantes = tentativasMaximas;
-  tentativasRestantesBox.textContent = tentativasRestantes;
+  tentativasNumero.textContent = tentativasRestantes;
 
   messageBox.innerHTML = ""; // limpa mensagens
   palpiteInput.value = "";

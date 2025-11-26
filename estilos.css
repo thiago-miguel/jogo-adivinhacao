@@ -1,0 +1,116 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Caixa principal do jogo */
+.game-container {
+    max-width: 500px;
+    background: #ffffff;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+/* Título */
+.game-container h1 {
+    margin-bottom: 10px;
+    color: #4a0080;
+}
+
+/* Texto de explicação */
+#explicacao {
+    margin-bottom: 20px;
+    color: #444;
+    font-size: 15px;
+}
+
+/* Área horizontal: contador + input + botão */
+.area-jogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Contador */
+.contador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f1eefc;
+    border: 2px solid #c4b5fd;
+    padding: 10px 15px;
+    border-radius: 12px;
+    width: 120px;
+}
+
+.contador .label {
+    font-size: 16px;
+    color: #5b21b6;
+}
+
+.contador .numero {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4c1d95;
+}
+
+/* Input */
+input[type="number"] {
+    padding: 12px;
+    width: 120px;
+    border-radius: 10px;
+    border: 2px solid #d0d0d0;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #7c3aed;
+}
+
+/* Botão */
+button {
+    padding: 12px 20px;
+    background-color: #7c3aed;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+    transition: background-color 0.3s ease, transform 0.1s;
+}
+
+button:hover:not(:disabled) {
+    background-color: #5b21b6;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+button:disabled {
+    background-color: #bdbdbd;
+    cursor: not-allowed;
+}
+
+/* Histórico de mensagens */
+#mensagens {
+    text-align: left;
+    margin-top: 20px;
+    background: #fafafa;
+    padding: 15px;
+    border-radius: 10px;
+    min-height: 60px;
+    border-left: 4px solid #7c3aed;
+    font-size: 14px;
+    color: #333;
+}
